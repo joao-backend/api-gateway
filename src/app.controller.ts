@@ -1,8 +1,8 @@
 import { Body, Controller, Post, Logger, UsePipes, ValidationPipe, Query, Get, Put, Param } from '@nestjs/common';
 import { ClientProxy, ClientProxyFactory, Transport } from '@nestjs/microservices';
-import { CriarCategoriaDto } from './dtos/criar-categoria.dto';
 import { Observable } from 'rxjs';
-import { AtualizarCategoriaDto } from './dtos/atualizar-categoria.dto';
+import { CriarCategoriaDto } from './categorias/dtos/criar-categoria.dto';
+import { AtualizarCategoriaDto } from './categorias/dtos/atualizar-categoria.dto';
 
 @Controller('api/v1')
 export class AppController {
