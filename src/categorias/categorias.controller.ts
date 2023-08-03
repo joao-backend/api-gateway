@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   Post,
@@ -42,5 +43,10 @@ export class CategoriasController {
       id: _id,
       categoria: atualizarCategoriaDto,
     });
+  }
+
+  @Delete('/:_id')
+  deletarCategoria(@Param('_id') _id: string): Observable<any> {
+    return this.clientAdminBackend.emit('deletar-categoria', _id ? _id : '');
   }
 }
