@@ -3,12 +3,17 @@ import { ClientProxy, ClientProxyFactory, Transport } from "@nestjs/microservice
 
 @Injectable()
 export class ClientProxySmartRanking {
+
+    constructor(){}
+
     getClientProxyAdminBackendInstance(): ClientProxy {
+
+
         return ClientProxyFactory.create({
             transport: Transport.RMQ,
             options: {
-                urls: ['amqp://user:0Ukvlm:PTixs@23.22.5.150:5672/smartranking'],
-                queue: 'admin-backend'
+                urls: [process.env.RABBITMQ_URL],
+                queue: process.env.RABBITMQ_QUEUE
               }
         })
     }
