@@ -32,7 +32,7 @@ export class JogadoresController {
       .toPromise();
 
     if (categoria) {
-      await this.clientAdminBackend.send('criar-jogador', criarJogadorDto);
+      this.clientAdminBackend.emit('criar-jogador', criarJogadorDto);
     } else {
       throw new BadRequestException('Categoria não existe.');
     }
